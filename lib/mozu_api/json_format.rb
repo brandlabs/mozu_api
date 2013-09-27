@@ -15,8 +15,7 @@ module MozuApi
     def decode(json)
       data = ActiveSupport::JSON.decode(json)
       return data unless data.is_a?(Hash)
-      change_keys(data[KEY_ITEMS] || data || {}, false).tap{|d| puts d.inspect}
-      #data[KEY_ITEMS] || data || {}
+      change_keys(data[KEY_ITEMS] || data || {}, false)
     end
     
     def change_keys(data = {}, to_camel_case = false)
