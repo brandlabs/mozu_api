@@ -7,6 +7,7 @@ require 'mozu_api/version'
 require 'mozu_api/header_string'
 require 'mozu_api/response_headers'
 require 'mozu_api/connection'
+require 'mozu_api/json_format'
 require 'mozu_api/base'
 require 'mozu_api/tenant_session'
 

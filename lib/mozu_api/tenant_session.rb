@@ -12,7 +12,7 @@ module MozuApi
         HEADER_SITE_ID => self.site_id.to_s()
       }
       #"Depending on your development store's implementation, the site group header might not be required."
-      headers[HEADER_SITE_GROUP_ID] => self.site_group_id.to_s() unless self.site_group_id.nil?()
+      headers[HEADER_SITE_GROUP_ID] = self.site_group_id.to_s() unless self.site_group_id.nil?()
       
       return headers
     end

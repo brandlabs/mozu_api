@@ -2,8 +2,8 @@ module MozuApi
   module Platform
     module Applications
       class AuthTicket < Base
-        self.prefix = "/api/platform/applications/"
-        self.element_name = "authtickets"
+        self.prefix = '/api/platform/applications/'
+        self.element_name = 'authtickets'
         self.schema do
           string 'RefreshToken', 'AccessToken'
           datetime 'AccessTokenExpiration', 'RefreshTokenExpiration'
