@@ -9,7 +9,7 @@ module MozuApi
     end
     
     def to_s()
-      super().to_s() << "; Details: [#{self.details}]"
+      super().to_s() << "  Details: #{self.details}."
     end
   end
 end

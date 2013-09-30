@@ -12,10 +12,10 @@ module MozuApi
       ActiveSupport::JSON.encode(change_keys(hash, true), options)
     end
     
-    def decode(json)
+    def decode(json, use_items = true)
       data = ActiveSupport::JSON.decode(json)
       return data unless data.is_a?(Hash)
-      change_keys(data[KEY_ITEMS] || data || {}, false)
+      change_keys( (use_items ? data[KEY_ITEMS] : nil) || data || {}, false)
     end
     
     def change_keys(data = {}, to_camel_case = false)
