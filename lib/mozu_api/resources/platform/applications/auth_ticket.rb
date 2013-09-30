@@ -5,8 +5,8 @@ module MozuApi
         self.prefix = '/api/platform/applications/'
         self.element_name = 'authtickets'
         self.schema do
-          string 'RefreshToken', 'AccessToken'
-          datetime 'AccessTokenExpiration', 'RefreshTokenExpiration'
+          string 'refresh_token', 'access_token'
+          datetime 'access_token_expiration', 'refresh_token_expiration'
         end
       
         class << self
@@ -15,7 +15,7 @@ module MozuApi
           #
           #POST /api/platform/applications/authtickets/
           def create(application_id, shared_secret)
-            response = post(:"", {}, {"ApplicationId" => application_id, "SharedSecret" => shared_secret}.to_json())
+            response = post(:"", {}, {'ApplicationId' => application_id, 'SharedSecret' => shared_secret}.to_json())
             instantiate_record(format.decode(response.body))
           end
           
@@ -42,14 +42,14 @@ module MozuApi
         #
         #
         def refresh()
-          self.load(self.class.refresh(self.RefreshToken).attributes) #TODO Gross attribute
+          self.load(self.class.refresh(self.refresh_token).attributes)
         end
         
         #
         #
         #
         def delete()
-          self.class.delete(self.RefreshToken) #TODO Gross attribute
+          self.class.delete(self.refresh_token)
         end
       end
     end

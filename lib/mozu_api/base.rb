@@ -45,8 +45,8 @@ module MozuApi
         super(*args).extend(Connection)
       end
       
-      #Add header methods delegated to connection
-      ResponseHeaders.instance_methods(false).each do |method|
+      #Add our connection methods delegated to connection
+      Connection.public_instance_methods(true).each do |method|
         define_method(method) do
           self.connection.send(method)
         end unless self.respond_to?(method)
